@@ -1,0 +1,87 @@
+is_global = true
+build_property.TargetFramework = net10.0
+build_property.TargetFramework = net10.0
+build_property.TargetPlatformMinVersion = 
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.TargetFrameworkIdentifier = .NETCoreApp
+build_property.TargetFrameworkVersion = v10.0
+build_property.RootNamespace = IdeaManager.Web
+build_property.RootNamespace = IdeaManager.Web
+build_property.ProjectDir = C:\Users\MOISÉS\Desktop\IdeaManagerMain\IdeaManager.Web\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.RazorLangVersion = 9.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\Users\MOISÉS\Desktop\IdeaManagerMain\IdeaManager.Web
+build_property._RazorSourceGeneratorDebug = 
+build_property.EffectiveAnalysisLevelStyle = 10.0
+build_property.EnableCodeStyleSeverity = 
+
+[C:/Users/MOISÉS/Desktop/IdeaManagerMain/IdeaManager.Web/Pages/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/MOISÉS/Desktop/IdeaManagerMain/IdeaManager.Web/Pages/Ideas/ConvertToProject.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSWRlYXNcQ29udmVydFRvUHJvamVjdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/MOISÉS/Desktop/IdeaManagerMain/IdeaManager.Web/Pages/Ideas/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSWRlYXNcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/MOISÉS/Desktop/IdeaManagerMain/IdeaManager.Web/Pages/Ideas/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSWRlYXNcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/MOISÉS/Desktop/IdeaManagerMain/IdeaManager.Web/Pages/Ideas/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSWRlYXNcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/MOISÉS/Desktop/IdeaManagerMain/IdeaManager.Web/Pages/Ideas/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSWRlYXNcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/MOISÉS/Desktop/IdeaManagerMain/IdeaManager.Web/Pages/Ideas/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSWRlYXNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/MOISÉS/Desktop/IdeaManagerMain/IdeaManager.Web/Pages/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/MOISÉS/Desktop/IdeaManagerMain/IdeaManager.Web/Pages/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJpdmFjeS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/MOISÉS/Desktop/IdeaManagerMain/IdeaManager.Web/Pages/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/MOISÉS/Desktop/IdeaManagerMain/IdeaManager.Web/Pages/TestDb.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVGVzdERiLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/MOISÉS/Desktop/IdeaManagerMain/IdeaManager.Web/Pages/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/MOISÉS/Desktop/IdeaManagerMain/IdeaManager.Web/Pages/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/MOISÉS/Desktop/IdeaManagerMain/IdeaManager.Web/Pages/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-fau8scn44d

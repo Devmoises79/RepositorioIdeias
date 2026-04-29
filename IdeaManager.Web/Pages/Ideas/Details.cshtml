@@ -1,0 +1,355 @@
+@page
+@model IdeaManager.Web.Pages.Ideas.DetailsModel
+@{
+    ViewData["Title"] = "Detalhes da Ideia";
+}
+@using IdeaManager.Core.Enums
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <div class="fade-in">
+                <!-- Cabeçalho -->
+                <div class="text-center mb-4">
+                    <i class="bi bi-lightbulb-fill display-1 text-warning mb-3"></i>
+                    <h1 class="display-5 fw-bold text-white mb-2">🔍 Detalhes da Ideia</h1>
+                    <p class="text-white-50">Visualize todas as informações da sua ideia</p>
+                </div>
+
+                <!-- Card da Ideia -->
+                <div class="card border-0 shadow-lg rounded-4">
+                    <div class="card-header bg-gradient-primary text-white rounded-top-4 border-0 p-4">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h3 class="mb-0">@Model.Idea.Title</h3>
+                            @if (Model.Idea.Status == IdeaStatus.Converted)
+                            {
+                                <span class="badge bg-success rounded-pill px-3 py-2">
+                                    <i class="bi bi-rocket-takeoff me-1"></i> Convertida em Projeto
+                                </span>
+                            }
+                        </div>
+                    </div>
+                    <div class="card-body p-4">
+                        <!-- Descrição com Toggle Texto/Tabela -->
+                        <div class="mb-4">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <label class="fw-bold text-primary mb-0">
+                                    <i class="bi bi-chat-text me-1"></i>Descrição:
+                                </label>
+                                
+                                <!-- Toggle Switch -->
+                                <div class="btn-group btn-group-sm" role="group">
+                                    <input type="radio" class="btn-check" name="viewMode" id="textView" autocomplete="off" checked>
+                                    <label class="btn btn-outline-primary rounded-pill px-3" for="textView" onclick="setViewMode('text')">
+                                        <i class="bi bi-file-text me-1"></i> Texto
+                                    </label>
+                                    
+                                    <input type="radio" class="btn-check" name="viewMode" id="tableView" autocomplete="off">
+                                    <label class="btn btn-outline-success rounded-pill px-3" for="tableView" onclick="setViewMode('table')">
+                                        <i class="bi bi-table me-1"></i> Tabela
+                                    </label>
+                                </div>
+                            </div>
+                            
+                            <!-- Visualização em Texto -->
+                            <div id="textViewMode" class="bg-light rounded-3 p-3">
+                                @Html.Raw(FormatDescriptionAsText(Model.Idea.Description ?? string.Empty))
+                            </div>
+                            
+                            <!-- Visualização em Tabela -->
+                            <div id="tableViewMode" class="bg-light rounded-3 p-3" style="display: none;">
+                                @Html.Raw(FormatDescriptionAsTable(Model.Idea.Description ?? string.Empty))
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <!-- Categoria -->
+                            <div class="col-md-6 mb-3">
+                                <label class="fw-bold text-primary mb-2">
+                                    <i class="bi bi-tag me-1"></i>Categoria:
+                                </label>
+                                <div>
+                                    <span class="badge bg-secondary rounded-pill px-3 py-2">@Model.Idea.Category</span>
+                                </div>
+                            </div>
+
+                            <!-- Status -->
+                            <div class="col-md-6 mb-3">
+                                <label class="fw-bold text-primary mb-2">
+                                    <i class="bi bi-flag me-1"></i>Status:
+                                </label>
+                                <div>
+                                    @switch (Model.Idea.Status)
+                                    {
+                                        case IdeaStatus.Draft:
+                                            <span class="badge bg-secondary rounded-pill px-3 py-2">📝 Rascunho</span>
+                                            break;
+                                        case IdeaStatus.Active:
+                                            <span class="badge bg-info rounded-pill px-3 py-2">✨ Em avaliação</span>
+                                            break;
+                                        case IdeaStatus.Converted:
+                                            <span class="badge bg-success rounded-pill px-3 py-2">🚀 Convertida</span>
+                                            break;
+                                        case IdeaStatus.Discarded:
+                                            <span class="badge bg-danger rounded-pill px-3 py-2">🗑️ Descartada</span>
+                                            break;
+                                    }
+                                </div>
+                            </div>
+
+                            <!-- Data e Hora de Criação (corrigida com fuso horário local) -->
+                            <div class="col-md-6 mb-3">
+                                <label class="fw-bold text-primary mb-2">
+                                    <i class="bi bi-calendar-plus me-1"></i>Data e Hora de Criação:
+                                </label>
+                                <div>@Model.Idea.CreatedAt.ToLocalTime().ToString("dd/MM/yyyy HH:mm")</div>
+                            </div>
+
+                            <!-- Última Atualização (corrigida com fuso horário local) -->
+                            <div class="col-md-6 mb-3">
+                                <label class="fw-bold text-primary mb-2">
+                                    <i class="bi bi-calendar-check me-1"></i>Última Atualização:
+                                </label>
+                                <div>@(Model.Idea.UpdatedAt.HasValue ? Model.Idea.UpdatedAt.Value.ToLocalTime().ToString("dd/MM/yyyy HH:mm") : "Nunca atualizada")</div>
+                            </div>
+
+                            <!-- Informações do Projeto (se convertida) -->
+                            @if (Model.Idea.Status == IdeaStatus.Converted && Model.Project != null)
+                            {
+                                <div class="col-12 mt-4">
+                                    <hr />
+                                    <h4 class="text-success mb-3">
+                                        <i class="bi bi-kanban me-2"></i>Projeto Relacionado
+                                    </h4>
+                                    <div class="bg-success bg-opacity-10 rounded-3 p-3">
+                                        <p><strong>Nome do Projeto:</strong> @Model.Project.Name</p>
+                                        <p><strong>Descrição:</strong> @Model.Project.Description</p>
+                                        <p><strong>Status:</strong> 
+                                            @switch (Model.Project.Status)
+                                            {
+                                                case ProjectStatus.Planning:
+                                                    <span>📋 Planejamento</span>
+                                                    break;
+                                                case ProjectStatus.InProgress:
+                                                    <span>⚙️ Em andamento</span>
+                                                    break;
+                                                case ProjectStatus.Paused:
+                                                    <span>⏸️ Pausado</span>
+                                                    break;
+                                                case ProjectStatus.Completed:
+                                                    <span>✅ Concluído</span>
+                                                    break;
+                                                default:
+                                                    <span>❌ Cancelado</span>
+                                                    break;
+                                            }
+                                        </p>
+                                        <div class="mt-2">
+                                            <label class="fw-bold">Progresso:</label>
+                                            <div class="d-flex align-items-center gap-3">
+                                                <div class="progress flex-grow-1" style="height: 8px;">
+                                                    <div class="progress-bar bg-success rounded-pill" style="width: @Model.Project.ProgressPercentage%"></div>
+                                                </div>
+                                                <span class="fw-bold">@Model.Project.ProgressPercentage%</span>
+                                            </div>
+                                        </div>
+                                        <div class="mt-3">
+                                            <a asp-page="/Projects/Details" asp-route-id="@Model.Project.Id" class="btn btn-outline-success rounded-pill">
+                                                <i class="bi bi-eye me-1"></i> Ver Projeto
+                                            </a>
+                                            <button type="button" class="btn btn-outline-danger rounded-pill ms-2" data-bs-toggle="modal" data-bs-target="#revertModal">
+                                                <i class="bi bi-arrow-return-left me-1"></i> Reverter para Ideia
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+
+                        <!-- Botões de Ação -->
+                        <hr class="my-4" />
+                        <div class="d-flex justify-content-between gap-3">
+                            <a asp-page="Index" class="btn btn-secondary rounded-pill px-4">
+                                <i class="bi bi-arrow-left me-2"></i>Voltar
+                            </a>
+                            <div>
+                                @if (Model.Idea.Status != IdeaStatus.Converted)
+                                {
+                                    <a asp-page="Edit" asp-route-id="@Model.Idea.Id" class="btn btn-warning rounded-pill px-4">
+                                        <i class="bi bi-pencil me-2"></i>Editar
+                                    </a>
+                                    <a asp-page="ConvertToProject" asp-route-id="@Model.Idea.Id" class="btn btn-success rounded-pill px-4">
+                                        <i class="bi bi-rocket-takeoff me-2"></i>Converter
+                                    </a>
+                                    <a asp-page="Delete" asp-route-id="@Model.Idea.Id" class="btn btn-danger rounded-pill px-4">
+                                        <i class="bi bi-trash me-2"></i>Excluir
+                                    </a>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal de Confirmação para Reverter -->
+<div class="modal fade" id="revertModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content rounded-4">
+            <div class="modal-header bg-warning">
+                <h5 class="modal-title fw-bold">
+                    <i class="bi bi-exclamation-triangle-fill me-2"></i>Reverter Conversão
+                </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>Tem certeza que deseja reverter esta conversão?</p>
+                <p class="text-muted small">Esta ação irá:</p>
+                <ul class="text-muted small">
+                    <li>Remover o projeto associado</li>
+                    <li>Alterar o status da ideia de volta para "Em avaliação"</li>
+                    <li><strong>Esta ação não pode ser desfeita!</strong></li>
+                </ul>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary rounded-pill" data-bs-dismiss="modal">Cancelar</button>
+                <form method="post" asp-page-handler="Revert" asp-route-id="@Model.Idea.Id">
+                    <button type="submit" class="btn btn-danger rounded-pill">
+                        <i class="bi bi-arrow-return-left me-2"></i>Sim, Reverter
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        function setViewMode(mode) {
+            if (mode === 'text') {
+                document.getElementById('textViewMode').style.display = 'block';
+                document.getElementById('tableViewMode').style.display = 'none';
+            } else {
+                document.getElementById('textViewMode').style.display = 'none';
+                document.getElementById('tableViewMode').style.display = 'block';
+            }
+            localStorage.setItem('descriptionViewMode', mode);
+        }
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            var savedMode = localStorage.getItem('descriptionViewMode');
+            if (savedMode === 'table') {
+                document.getElementById('tableView').checked = true;
+                setViewMode('table');
+            } else {
+                document.getElementById('textView').checked = true;
+                setViewMode('text');
+            }
+        });
+    </script>
+}
+
+@functions {
+    private string FormatDescriptionAsText(string description)
+    {
+        if (string.IsNullOrEmpty(description))
+            return "<p class='text-muted mb-0'>Sem descrição</p>";
+
+        var html = new System.Text.StringBuilder();
+        html.Append("<div class='descricao-texto'>");
+
+        var paragraphs = description.Split(new[] { "\r\n\r\n", "\n\n" }, StringSplitOptions.RemoveEmptyEntries);
+        
+        foreach (var paragraph in paragraphs)
+        {
+            var trimmedParagraph = paragraph.Trim();
+            
+            if (trimmedParagraph.Contains("- ") || trimmedParagraph.Contains("• ") || trimmedParagraph.Contains("* "))
+            {
+                html.Append("<ul class='mb-2'>");
+                var items = trimmedParagraph.Split(new[] { "\r\n", "\n" }, StringSplitOptions.RemoveEmptyEntries);
+                foreach (var item in items)
+                {
+                    var cleanItem = item.Trim().TrimStart('-', '•', '*').Trim();
+                    if (!string.IsNullOrEmpty(cleanItem))
+                    {
+                        html.Append("<li>" + cleanItem + "</li>");
+                    }
+                }
+                html.Append("</ul>");
+            }
+            else
+            {
+                html.Append("<div class='mb-2'>" + trimmedParagraph + "</div>");
+            }
+        }
+
+        html.Append("</div>");
+        return html.ToString();
+    }
+
+    private string FormatDescriptionAsTable(string description)
+    {
+        if (string.IsNullOrEmpty(description))
+            return "<p class='text-muted mb-0'>Sem descrição</p>";
+
+        var html = new System.Text.StringBuilder();
+        html.Append("<div class='descricao-tabela'>");
+
+        // Tabela de Pontuação
+        html.Append(@"
+        <div class='mb-3'>
+            <div class='fw-bold text-info mb-2'>📊 Tabela de Pontuação</div>
+            <div class='table-responsive'>
+                <table class='table table-bordered table-hover'>
+                    <thead class='table-primary'>
+                        <tr>
+                            <th>Critério</th>
+                            <th class='text-center'>Peso</th>
+                            <th class='text-center'>Pontuação Máxima</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Postura</strong></td>
+                            <td class='text-center'>Peso 1</td>
+                            <td class='text-center'>5 pontos</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Didática</strong></td>
+                            <td class='text-center'>Peso 1</td>
+                            <td class='text-center'>5 pontos</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Clareza</strong></td>
+                            <td class='text-center'>Peso 1</td>
+                            <td class='text-center'>10 pontos</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Objetividade</strong></td>
+                            <td class='text-center'>Peso 2</td>
+                            <td class='text-center'>15 pontos</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Criatividade</strong></td>
+                            <td class='text-center'>Peso 2</td>
+                            <td class='text-center'>20 pontos</td>
+                        </tr>
+                    </tbody>
+                    <tfoot class='table-secondary'>
+                        <tr>
+                            <td colspan='2'><strong>Total</strong></td>
+                            <td class='text-center'><strong>55 pontos</strong></td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+            <small class='text-muted'>※ A pontuação vai de 1 até o valor máximo do tópico avaliado.</small>
+        </div>");
+
+        html.Append("</div>");
+        return html.ToString();
+    }
+}

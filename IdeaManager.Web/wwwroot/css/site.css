@@ -1,0 +1,201 @@
+/* Variáveis e tema */
+:root {
+    --primary-gradient: linear-gradient(135deg, #3450cc 0%, #623e86 100%);
+    --card-shadow: 0 10px 40px rgba(0,0,0,0.1);
+    --hover-shadow: 0 20px 50px rgba(0,0,0,0.15);
+    --transition: all 0.3s ease;
+}
+
+/* Estilo global */
+html, body {
+    height: 100%;
+}
+
+body {
+    font-family: 'Segoe UI', 'Inter', system-ui, -apple-system, sans-serif;
+    background: var(--primary-gradient);
+    background-attachment: fixed;
+}
+
+/* Container principal */
+.main-container {
+    min-height: calc(100vh - 160px);
+}
+
+/* Cards modernos */
+.card-modern, .card {
+    background: white;
+    border-radius: 20px;
+    border: none;
+    box-shadow: var(--card-shadow);
+    transition: var(--transition);
+    overflow: hidden;
+}
+
+.card-modern:hover, .hover-lift:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--hover-shadow);
+}
+
+.card-header-modern {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    padding: 1.5rem;
+    font-weight: 600;
+}
+
+/* Botões modernos */
+.btn-modern {
+    border-radius: 12px;
+    padding: 0.6rem 1.5rem;
+    font-weight: 500;
+    transition: var(--transition);
+    border: none;
+}
+
+.btn-modern:hover {
+    transform: translateY(-2px);
+    filter: brightness(105%);
+}
+
+.btn-primary-modern {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+.btn-primary-modern:hover {
+    background: linear-gradient(135deg, #5a67d8 0%, #6b46a0 100%);
+}
+
+/* Badges modernos */
+.badge-modern {
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    font-weight: 500;
+    font-size: 0.8rem;
+}
+
+.badge-draft {
+    background-color: #e2e8f0;
+    color: #4a5568;
+}
+
+.badge-active {
+    background-color: #bee3f8;
+    color: #2c5282;
+}
+
+.badge-converted {
+    background-color: #c6f6d5;
+    color: #22543d;
+}
+
+.badge-discarded {
+    background-color: #fed7d7;
+    color: #742a2a;
+}
+
+/* Formulários modernos */
+.form-control-modern {
+    border-radius: 12px;
+    border: 2px solid #e2e8f0;
+    padding: 0.75rem 1rem;
+    transition: var(--transition);
+}
+
+.form-control-modern:focus {
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+/* Navbar melhorada */
+.navbar-modern {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+}
+
+.navbar-brand-modern {
+    font-weight: 700;
+    font-size: 1.5rem;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.nav-link-modern {
+    color: #4a5568;
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+.nav-link-modern:hover {
+    color: #667eea;
+    transform: translateY(-2px);
+}
+
+/* Alertas */
+.alert-modern {
+    border-radius: 16px;
+    border: none;
+    box-shadow: var(--card-shadow);
+}
+
+/* Animações */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in {
+    animation: fadeIn 0.5s ease-out;
+}
+
+.hover-lift {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-lift:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15) !important;
+}
+
+.bg-gradient-primary {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+/* Ajustes para formulários */
+.form-control, .form-select {
+    border: 2px solid #e2e8f0;
+    transition: all 0.3s ease;
+    border-radius: 12px;
+    padding: 0.75rem 1rem;
+}
+
+.form-control:focus, .form-select:focus {
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+/* Ajustes para botões arredondados */
+.rounded-pill {
+    border-radius: 50px !important;
+}
+
+.rounded-4 {
+    border-radius: 20px !important;
+}
+
+/* Footer */
+.footer {
+    background: rgba(0, 0, 0, 0.8) !important;
+    backdrop-filter: blur(10px);
+}

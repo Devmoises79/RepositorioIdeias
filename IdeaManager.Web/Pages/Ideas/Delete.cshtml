@@ -1,0 +1,68 @@
+@page
+@model IdeaManager.Web.Pages.Ideas.DeleteModel
+@{
+    ViewData["Title"] = "Excluir Ideia";
+}
+@using IdeaManager.Core.Enums
+
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header bg-danger text-white">
+                    <h3>⚠️ Excluir Ideia</h3>
+                </div>
+                <div class="card-body">
+                    <div class="alert alert-warning">
+                        <h4>Você tem certeza que deseja excluir esta ideia?</h4>
+                        <p>Esta ação não pode ser desfeita.</p>
+                    </div>
+
+                    <dl class="row">
+                        <dt class="col-sm-3">Título</dt>
+                        <dd class="col-sm-9">@Model.Idea.Title</dd>
+
+                        <dt class="col-sm-3">Descrição</dt>
+                        <dd class="col-sm-9">@Model.Idea.Description</dd>
+
+                        <dt class="col-sm-3">Categoria</dt>
+                        <dd class="col-sm-9">@Model.Idea.Category</dd>
+
+                        <dt class="col-sm-3">Status</dt>
+                        <dd class="col-sm-9">
+                            @switch (Model.Idea.Status)
+                            {
+                                case IdeaStatus.Draft:
+                                    <span>📝 Rascunho</span>
+                                    break;
+                                case IdeaStatus.Active:
+                                    <span>✨ Em avaliação</span>
+                                    break;
+                                case IdeaStatus.Converted:
+                                    <span>🚀 Convertida</span>
+                                    break;
+                                case IdeaStatus.Discarded:
+                                    <span>🗑️ Descartada</span>
+                                    break;
+                                default:
+                                    <span>📝 Rascunho</span>
+                                    break;
+                            }
+                        </dd>
+
+                        <dt class="col-sm-3">Data de Criação</dt>
+                        <dd class="col-sm-9">@Model.Idea.CreatedAt.ToString("dd/MM/yyyy HH:mm")</dd>
+                    </dl>
+
+                    <form method="post">
+                        <input type="hidden" asp-for="Idea.Id" />
+                        <div class="d-flex justify-content-between">
+                            <a asp-page="Index" class="btn btn-secondary">Cancelar</a>
+                            <button type="submit" class="btn btn-danger">🗑️ Confirmar Exclusão</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

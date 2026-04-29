@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="IdeaManager.Core/IdeaManager.Core.csproj" />
+  <Project Path="IdeaManager.Infrastructure/IdeaManager.Infrastructure.csproj" />
+  <Project Path="IdeaManager.Tests/IdeaManager.Tests.csproj" />
+  <Project Path="IdeaManager.Web/IdeaManager.Web.csproj" />
+</Solution>

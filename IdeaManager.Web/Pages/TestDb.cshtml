@@ -1,0 +1,56 @@
+@page
+@using IdeaManager.Infrastructure.Data
+@using Microsoft.EntityFrameworkCore
+@inject AppDbContext DbContext
+
+<h1>🔌 Teste de Conexão com o Banco de Dados</h1>
+
+<hr />
+
+@{
+    try
+    {
+        var canConnect = await DbContext.Database.CanConnectAsync();
+        
+        if (canConnect)
+        {
+            <div style="color: green; background-color: #d4edda; padding: 15px; border-radius: 5px;">
+                <h2>✅ CONEXÃO BEM-SUCEDIDA!</h2>
+                <p>O PostgreSQL está respondendo corretamente.</p>
+            </div>
+            
+            <br />
+            
+            <div style="background-color: #e8f4f8; padding: 15px; border-radius: 5px;">
+                <h3>📊 Informações do Banco:</h3>
+                <ul>
+                    <li><strong>Banco de dados:</strong> @DbContext.Database.GetDbConnection().Database</li>
+                    <li><strong>DataSource:</strong> @DbContext.Database.GetDbConnection().DataSource</li>
+                    <li><strong>Total de Ideias:</strong> @(await DbContext.Ideas.CountAsync())</li>
+                    <li><strong>Total de Projetos:</strong> @(await DbContext.Projects.CountAsync())</li>
+                </ul>
+            </div>
+        }
+        else
+        {
+            <div style="color: red; background-color: #f8d7da; padding: 15px; border-radius: 5px;">
+                <h2>❌ FALHA NA CONEXÃO!</h2>
+                <p>Não foi possível conectar ao PostgreSQL. Verifique se o serviço está rodando.</p>
+            </div>
+        }
+    }
+    catch (Exception ex)
+    {
+        <div style="color: red; background-color: #f8d7da; padding: 15px; border-radius: 5px;">
+            <h2>❌ ERRO DE CONEXÃO</h2>
+            <p><strong>Mensagem:</strong> @ex.Message</p>
+            <p><strong>Detalhes:</strong> Verifique a connection string no appsettings.json</p>
+        </div>
+    }
+}
+
+<br />
+
+<div>
+    <a href="/" class="btn btn-secondary">Voltar para Home</a>
+</div>

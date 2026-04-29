@@ -1,0 +1,220 @@
+﻿@page
+@model PrivacyModel
+@{
+    ViewData["Title"] = "Política de Privacidade";
+}
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-lg-10">
+            <div class="fade-in">
+                <!-- Cabeçalho -->
+                <div class="text-center mb-5">
+                    <i class="bi bi-shield-lock-fill display-1 text-warning mb-3"></i>
+                    <h1 class="display-4 fw-bold text-white mb-3">Política de Privacidade</h1>
+                    <p class="lead text-white-50">
+                        Saiba como protegemos e utilizamos suas informações
+                    </p>
+                </div>
+
+                <!-- Card Principal -->
+                <div class="card border-0 shadow-lg rounded-4 mb-4">
+                    <div class="card-body p-5">
+                        <div class="mb-4">
+                            <h2 class="fw-bold text-primary mb-3">
+                                <i class="bi bi-info-circle me-2"></i>Nosso Compromisso
+                            </h2>
+                            <p class="text-muted">
+                                No Idea Manager, valorizamos a privacidade e a segurança dos seus dados. 
+                                Esta política descreve como coletamos, usamos e protegemos as informações 
+                                que você compartilha conosco ao utilizar nossa plataforma de gestão de ideias.
+                            </p>
+                        </div>
+
+                        <div class="mb-4">
+                            <h2 class="fw-bold text-primary mb-3">
+                                <i class="bi bi-database me-2"></i>Informações Coletadas
+                            </h2>
+                            <ul class="text-muted list-unstyled">
+                                <li class="mb-2">
+                                    <i class="bi bi-check-circle-fill text-success me-2"></i>
+                                    <strong>Dados de Ideias:</strong> Títulos, descrições e categorias das suas ideias
+                                </li>
+                                <li class="mb-2">
+                                    <i class="bi bi-check-circle-fill text-success me-2"></i>
+                                    <strong>Dados de Projetos:</strong> Nomes, descrições e status dos seus projetos
+                                </li>
+                                <li class="mb-2">
+                                    <i class="bi bi-check-circle-fill text-success me-2"></i>
+                                    <strong>Dados de Uso:</strong> Datas de criação e modificação dos seus registros
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="mb-4">
+                            <h2 class="fw-bold text-primary mb-3">
+                                <i class="bi bi-shield-check me-2"></i>Segurança dos Dados
+                            </h2>
+                            <p class="text-muted">
+                                Implementamos medidas de segurança técnicas e organizacionais para proteger 
+                                suas informações contra acesso não autorizado, alteração, divulgação ou destruição. 
+                                Todos os dados são armazenados em servidores seguros com criptografia.
+                            </p>
+                        </div>
+
+                        <div class="mb-4">
+                            <h2 class="fw-bold text-primary mb-3">
+                                <i class="bi bi-cookie me-2"></i>Uso de Cookies
+                            </h2>
+                            <p class="text-muted">
+                                Utilizamos cookies e tecnologias semelhantes para melhorar sua experiência, 
+                                analisar tendências e administrar a plataforma. Você pode controlar o uso 
+                                de cookies através das configurações do seu navegador.
+                            </p>
+                        </div>
+
+                        <div class="mb-4">
+                            <h2 class="fw-bold text-primary mb-3">
+                                <i class="bi bi-globe2 me-2"></i>Compartilhamento de Dados
+                            </h2>
+                            <p class="text-muted">
+                                Não vendemos, trocamos ou transferimos suas informações pessoais para terceiros 
+                                sem o seu consentimento, exceto quando exigido por lei ou necessário para 
+                                operar nosso serviço (como provedores de hospedagem).
+                            </p>
+                        </div>
+
+                        <div class="alert alert-info rounded-4 border-0 shadow-sm">
+                            <div class="d-flex align-items-center">
+                                <i class="bi bi-clock-history fs-1 me-3"></i>
+                                <div>
+                                    <strong>Atualizações desta Política</strong><br>
+                                    <small>Esta política foi atualizada pela última vez em @DateTime.Now.ToString("dd/MM/yyyy")</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Seus Direitos -->
+                <div class="card border-0 shadow-lg rounded-4 mb-4">
+                    <div class="card-header bg-gradient-primary text-white rounded-top-4 border-0 p-4">
+                        <h3 class="mb-0">
+                            <i class="bi bi-person-badge me-2"></i>Seus Direitos
+                        </h3>
+                    </div>
+                    <div class="card-body p-4">
+                        <div class="row g-4">
+                            <div class="col-md-6">
+                                <div class="d-flex align-items-start gap-3">
+                                    <i class="bi bi-eye fs-3 text-primary"></i>
+                                    <div>
+                                        <h5 class="fw-bold mb-1">Acesso</h5>
+                                        <p class="text-muted small">Você pode acessar todos os seus dados a qualquer momento</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="d-flex align-items-start gap-3">
+                                    <i class="bi bi-pencil-square fs-3 text-warning"></i>
+                                    <div>
+                                        <h5 class="fw-bold mb-1">Correção</h5>
+                                        <p class="text-muted small">Solicite a correção de dados incorretos ou incompletos</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="d-flex align-items-start gap-3">
+                                    <i class="bi bi-trash fs-3 text-danger"></i>
+                                    <div>
+                                        <h5 class="fw-bold mb-1">Exclusão</h5>
+                                        <p class="text-muted small">Solicite a exclusão dos seus dados quando não forem mais necessários</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="d-flex align-items-start gap-3">
+                                    <i class="bi bi-download fs-3 text-success"></i>
+                                    <div>
+                                        <h5 class="fw-bold mb-1">Portabilidade</h5>
+                                        <p class="text-muted small">Receba seus dados em formato estruturado e legível</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ -->
+                <div class="card border-0 shadow-lg rounded-4 mb-4">
+                    <div class="card-header bg-dark text-white rounded-top-4 border-0 p-4">
+                        <h3 class="mb-0">
+                            <i class="bi bi-question-circle me-2"></i>Perguntas Frequentes
+                        </h3>
+                    </div>
+                    <div class="card-body p-4">
+                        <div class="accordion" id="faqAccordion">
+                            <div class="accordion-item border-0 mb-2">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed bg-light rounded-3" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                                        <strong>Como posso solicitar a exclusão dos meus dados?</strong>
+                                    </button>
+                                </h2>
+                                <div id="faq1" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                    <div class="accordion-body text-muted">
+                                        Entre em contato conosco através do suporte com sua solicitação. Verificaremos sua identidade 
+                                        e processaremos a exclusão dentro de 30 dias.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item border-0 mb-2">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed bg-light rounded-3" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                                        <strong>Meus dados são compartilhados com terceiros?</strong>
+                                    </button>
+                                </h2>
+                                <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                    <div class="accordion-body text-muted">
+                                        Não compartilhamos seus dados com terceiros sem seu consentimento explícito, 
+                                        exceto quando exigido por lei.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item border-0">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed bg-light rounded-3" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+                                        <strong>Por quanto tempo meus dados são armazenados?</strong>
+                                    </button>
+                                </h2>
+                                <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                    <div class="accordion-body text-muted">
+                                        Armazenamos seus dados enquanto sua conta estiver ativa. Após a exclusão da conta, 
+                                        os dados são removidos permanentemente após 90 dias.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contato -->
+                <div class="text-center mb-5">
+                    <p class="text-white-50">
+                        <i class="bi bi-envelope me-1"></i> Dúvidas? Entre em contato: 
+                        <a href="mailto:privacidade@ideamanager.com" class="text-warning text-decoration-none">
+                            privacidade@ideamanager.com
+                        </a>
+                    </p>
+                    <div class="d-flex justify-content-center gap-3 mt-3">
+                        <a asp-page="/Index" class="btn btn-outline-light rounded-pill px-4">
+                            <i class="bi bi-house-door me-2"></i>Voltar para Home
+                        </a>
+                        <a asp-page="/Ideas/Index" class="btn btn-warning rounded-pill px-4">
+                            <i class="bi bi-lightbulb me-2"></i>Ver Minhas Ideias
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

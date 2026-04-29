@@ -1,0 +1,11 @@
+C:\Users\MOISÉS\Desktop\IdeaManagerMain\IdeaManager.Core\bin\Debug\net10.0\IdeaManager.Core.deps.json
+C:\Users\MOISÉS\Desktop\IdeaManagerMain\IdeaManager.Core\bin\Debug\net10.0\IdeaManager.Core.dll
+C:\Users\MOISÉS\Desktop\IdeaManagerMain\IdeaManager.Core\bin\Debug\net10.0\IdeaManager.Core.pdb
+C:\Users\MOISÉS\Desktop\IdeaManagerMain\IdeaManager.Core\obj\Debug\net10.0\IdeaManager.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\MOISÉS\Desktop\IdeaManagerMain\IdeaManager.Core\obj\Debug\net10.0\IdeaManager.Core.AssemblyInfoInputs.cache
+C:\Users\MOISÉS\Desktop\IdeaManagerMain\IdeaManager.Core\obj\Debug\net10.0\IdeaManager.Core.AssemblyInfo.cs
+C:\Users\MOISÉS\Desktop\IdeaManagerMain\IdeaManager.Core\obj\Debug\net10.0\IdeaManager.Core.csproj.CoreCompileInputs.cache
+C:\Users\MOISÉS\Desktop\IdeaManagerMain\IdeaManager.Core\obj\Debug\net10.0\IdeaManager.Core.dll
+C:\Users\MOISÉS\Desktop\IdeaManagerMain\IdeaManager.Core\obj\Debug\net10.0\refint\IdeaManager.Core.dll
+C:\Users\MOISÉS\Desktop\IdeaManagerMain\IdeaManager.Core\obj\Debug\net10.0\IdeaManager.Core.pdb
+C:\Users\MOISÉS\Desktop\IdeaManagerMain\IdeaManager.Core\obj\Debug\net10.0\ref\IdeaManager.Core.dll

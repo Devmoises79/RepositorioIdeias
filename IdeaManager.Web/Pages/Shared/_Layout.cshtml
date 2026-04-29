@@ -1,0 +1,92 @@
+﻿<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Idea Manager</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+</head>
+<body>
+    <!-- Navbar Modernizada -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-lg sticky-top">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" asp-area="" asp-page="/Index">
+                <i class="bi bi-lightbulb-fill fs-2 me-2 text-warning"></i>
+                <span class="fw-bold fs-4">Idea Manager</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                <ul class="navbar-nav flex-grow-1">
+                    <li class="nav-item">
+                        <a class="nav-link text-light fw-semibold px-3" asp-area="" asp-page="/Ideas/Index">
+                            <i class="bi bi-lightbulb me-1"></i> 💡 Ideias
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-light fw-semibold px-3" asp-area="" asp-page="/Privacy">
+                            <i class="bi bi-shield-lock me-1"></i> Privacidade
+                        </a>
+                    </li>
+                </ul>
+                <div class="d-flex text-light">
+                    <i class="bi bi-robot fs-5 me-2"></i>
+                    <small>Sistema de Gestão de Ideias</small>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Container principal -->
+    <div class="container main-container py-4">
+        <!-- Mensagens de Sucesso/Erro -->
+        @if (TempData["SuccessMessage"] != null)
+        {
+            <div class="alert alert-success alert-dismissible fade show shadow-lg rounded-4 border-0" role="alert">
+                <i class="bi bi-check-circle-fill me-2"></i>
+                @TempData["SuccessMessage"]
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        }
+        
+        @if (TempData["ErrorMessage"] != null)
+        {
+            <div class="alert alert-danger alert-dismissible fade show shadow-lg rounded-4 border-0" role="alert">
+                <i class="bi bi-exclamation-triangle-fill me-2"></i>
+                @TempData["ErrorMessage"]
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        }
+
+        <!-- Conteúdo principal -->
+        <main role="main" class="fade-in">
+            @RenderBody()
+        </main>
+    </div>
+
+    <!-- Footer Modernizado -->
+    <footer class="footer mt-auto py-4 bg-dark text-light">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6 text-center text-md-start">
+                    <small>&copy; @DateTime.Now.Year - Idea Manager - Transformando ideias em realidade</small>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <i class="bi bi-github me-2"></i>
+                    <i class="bi bi-linkedin me-2"></i>
+                    <i class="bi bi-twitter"></i>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

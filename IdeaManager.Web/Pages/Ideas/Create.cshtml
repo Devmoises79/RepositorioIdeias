@@ -1,0 +1,67 @@
+@page
+@model IdeaManager.Web.Pages.Ideas.CreateModel
+@{
+    ViewData["Title"] = "Nova Ideia";
+}
+@using IdeaManager.Core.Enums
+
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header bg-primary text-white">
+                    <h3>💡 Criar Nova Ideia</h3>
+                </div>
+                <div class="card-body">
+                    <form method="post">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                        <div class="mb-3">
+                            <label asp-for="Idea.Title" class="form-label">Título *</label>
+                            <input asp-for="Idea.Title" class="form-control" />
+                            <span asp-validation-for="Idea.Title" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Idea.Description" class="form-label">Descrição *</label>
+                            <textarea asp-for="Idea.Description" class="form-control" rows="5"></textarea>
+                            <span asp-validation-for="Idea.Description" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Idea.Category" class="form-label">Categoria *</label>
+                            <select asp-for="Idea.Category" class="form-select">
+                                <option value="">Selecione...</option>
+                                <option value="Tecnologia">🚀 Tecnologia</option>
+                                <option value="Negócios">💼 Negócios</option>
+                                <option value="Pessoal">👤 Pessoal</option>
+                                <option value="Educação">📚 Educação</option>
+                                <option value="Saúde">🏥 Saúde</option>
+                                <option value="Outros">📌 Outros</option>
+                            </select>
+                            <span asp-validation-for="Idea.Category" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Idea.Status" class="form-label">Status</label>
+                            <select asp-for="Idea.Status" class="form-select">
+                                <option value="@IdeaStatus.Draft">📝 Rascunho</option>
+                                <option value="@IdeaStatus.Active">✨ Em avaliação</option>
+                            </select>
+                            <span asp-validation-for="Idea.Status" class="text-danger"></span>
+                        </div>
+
+                        <div class="d-flex justify-content-between">
+                            <a asp-page="Index" class="btn btn-secondary">Cancelar</a>
+                            <button type="submit" class="btn btn-primary">💾 Salvar Ideia</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
