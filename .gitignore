@@ -1,0 +1,50 @@
+# User Secrets
+appsettings.json
+appsettings.Development.json
+
+# Build results
+bin/
+obj/
+Debug/
+Release/
+*.exe
+*.dll
+*.pdb
+*.log
+
+# Visual Studio / VS Code
+.vs/
+.vscode/
+*.user
+*.suo
+*.sln.docstates
+
+# Entity Framework
+Migrations/.DS_Store
+*.db
+*.sqlite
+
+# Environment variables
+.env
+.env.local
+.env.production
+
+# NuGet packages
+packages/
+*.nupkg
+
+# Test results
+TestResults/
+*.trx
+
+# Publish profiles
+*.pubxml.user
+
+# Backup files
+*.bak
+*.tmp
+*.temp
+
+# OS generated files
+Thumbs.db
+.DS_Store
