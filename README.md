@@ -226,7 +226,7 @@ O projeto continuará evoluindo com as seguintes funcionalidades:
 
 ## 👨‍💻 Autor
 
-**Moisés Aniceto**  
+**@Devmoises79**  
 
 ---
 
