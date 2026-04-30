@@ -1,6 +1,6 @@
 # 📋 Idea Manager
 
-Sistema web fullstack para gestão, organização e evolução de ideias até sua transformação em projetos executáveis.
+Aplicação web fullstack para captura, organização e evolução de ideias até sua transformação em projetos executáveis.
 
 [![Status](https://img.shields.io/badge/status-estável-brightgreen)]()
 [![.NET](https://img.shields.io/badge/.NET-10.0-purple)]()
@@ -9,98 +9,106 @@ Sistema web fullstack para gestão, organização e evolução de ideias até su
 
 ---
 
+💡 **Problema:** ideias surgem constantemente, mas sem organização acabam sendo esquecidas ou nunca executadas.
+
+🚀 **Solução:** o Idea Manager centraliza, organiza e acompanha ideias desde a criação até sua execução como projetos.
+
+🎯 **Objetivo:** transformar ideias em ações de forma estruturada e rastreável.
+---
+
 ## 🚀 Visão Geral
 
-O **Idea Manager** foi desenvolvido para resolver um problema comum: ideias surgem, mas raramente são organizadas ou evoluídas.
+O **Idea Manager** é uma aplicação web para captura, organização e evolução de ideias até sua transformação em projetos executáveis.
 
-**A aplicação permite:**
-- Registrar ideias rapidamente
-- Organizar por categorias e status
-- Acompanhar evolução
-- Converter ideias em projetos reais
-- Monitorar progresso
-- Reverter conversão quando necessário
+Projetado com foco em produtividade e clareza, o sistema permite:
 
----
+- Registrar ideias de forma rápida  
+- Organizar por categorias e status  
+- Acompanhar o ciclo de vida das ideias  
+- Converter ideias em projetos estruturados  
+- Monitorar progresso de execução  
+- Reverter conversões quando necessário  
+
+👉 O objetivo é reduzir a perda de ideias e facilitar sua execução de forma estruturada.
 
 ## 🧱 Estrutura do Projeto
 
 ```text
 RepositorioIdeias/
-├── IdeaManager.Core/ # Domínio e Regras de Negócio
-│ ├── Entities/
-│ │ ├── Idea.cs # Entidade Ideia
-│ │ └── Project.cs # Entidade Projeto
-│ ├── Enums/
-│ │ ├── IdeaStatus.cs # Draft, Active, Converted, Discarded
-│ │ └── ProjectStatus.cs # Planning, InProgress, Paused, Completed, Cancelled
-│ └── IdeaManager.Core.csproj
+├── IdeaManager.Core/                # Domínio e Regras de Negócio
+│   ├── Entities/
+│   │   ├── Idea.cs                 # Entidade Ideia
+│   │   └── Project.cs              # Entidade Projeto
+│   ├── Enums/
+│   │   ├── IdeaStatus.cs           # Draft, Active, Converted, Discarded
+│   │   └── ProjectStatus.cs        # Planning, InProgress, Paused, Completed, Cancelled
+│   └── IdeaManager.Core.csproj
 │
-├── IdeaManager.Infrastructure/ # Acesso a Dados
-│ ├── Data/
-│ │ └── AppDbContext.cs # DbContext do EF Core
-│ ├── Migrations/ # Migrations do banco
-│ └── IdeaManager.Infrastructure.csproj
+├── IdeaManager.Infrastructure/     # Acesso a Dados
+│   ├── Data/
+│   │   └── AppDbContext.cs         # DbContext do EF Core
+│   ├── Migrations/                # Migrations do banco
+│   └── IdeaManager.Infrastructure.csproj
 │
-├── IdeaManager.Web/ # Apresentação (Razor Pages)
-│ ├── Pages/
-│ │ ├── Ideas/ # CRUD Completo
-│ │ │ ├── Index.cshtml # Listagem em cards
-│ │ │ ├── Create.cshtml # Nova ideia
-│ │ │ ├── Edit.cshtml # Editar ideia
-│ │ │ ├── Delete.cshtml # Excluir ideia
-│ │ │ ├── Details.cshtml # Detalhes (toggle texto/tabela)
-│ │ │ └── ConvertToProject.cshtml # Conversão para projeto
-│ │ ├── Shared/
-│ │ │ └── _Layout.cshtml # Layout base com Bootstrap
-│ │ ├── Index.cshtml # Home page
-│ │ └── Privacy.cshtml # Política de privacidade
-│ ├── wwwroot/css/
-│ │ └── site.css # Estilos customizados
-│ ├── Program.cs # Entry point com redirects
-│ ├── appsettings.Example.json # Template de configuração
-│ └── IdeaManager.Web.csproj
+├── IdeaManager.Web/               # Apresentação (Razor Pages)
+│   ├── Pages/
+│   │   ├── Ideas/                # CRUD Completo
+│   │   │   ├── Index.cshtml      # Listagem em cards
+│   │   │   ├── Create.cshtml     # Nova ideia
+│   │   │   ├── Edit.cshtml       # Editar ideia
+│   │   │   ├── Delete.cshtml     # Excluir ideia
+│   │   │   ├── Details.cshtml    # Detalhes (toggle texto/tabela)
+│   │   │   └── ConvertToProject.cshtml # Conversão para projeto
+│   │   ├── Shared/
+│   │   │   └── _Layout.cshtml    # Layout base com Bootstrap
+│   │   ├── Index.cshtml          # Home page
+│   │   └── Privacy.cshtml        # Política de privacidade
+│   ├── wwwroot/css/
+│   │   └── site.css              # Estilos customizados
+│   ├── Program.cs                # Entry point
+│   ├── appsettings.Example.json  # Template de configuração
+│   └── IdeaManager.Web.csproj
 │
-├── IdeaManager.Tests/ # Testes Unitários
-│ ├── UnitTest1.cs
-│ └── IdeaManager.Tests.csproj
+├── IdeaManager.Tests/            # Testes Unitários
+│   ├── UnitTest1.cs
+│   └── IdeaManager.Tests.csproj
 │
-├── .gitignore # Arquivos ignorados
-└── IdeaManager.slnx # Arquivo de solução
-```
-
+├── .gitignore                   # Arquivos ignorados
+└── IdeaManager.slnx             # Arquivo de solução
 ---
+```
 
 ## 📊 Modelo de Dados
 
 ### 💡 Idea (Ideia)
 
-```text
-| Campo | Tipo | Descrição |
-|-------|------|-----------|
-| Id | Guid | Identificador único |
-| Title | string | Título da ideia |
-| Description | string | Descrição detalhada |
-| Category | string | Tecnologia, Negócios, Pessoal, etc. |
-| Status | IdeaStatus | Draft, Active, Converted, Discarded |
-| CreatedAt | DateTime | Data de criação (UTC) |
-| UpdatedAt | DateTime? | Última atualização |
+```
+| Campo       | Tipo       | Descrição                                   |
+|------------|------------|--------------------------------------------|
+| Id         | Guid       | Identificador único                        |
+| Title      | string     | Título da ideia                            |
+| Description| string     | Descrição detalhada                        |
+| Category   | string     | Tecnologia, Negócios, Pessoal, etc.        |
+| Status     | IdeaStatus | Draft, Active, Converted, Discarded        |
+| CreatedAt  | DateTime   | Data de criação (UTC)                      |
+| UpdatedAt  | DateTime?  | Última atualização                         |
 ```
 
 ### 🚀 Project (Projeto)
 
-```text
-| Campo | Tipo | Descrição |
-|-------|------|-----------|
-| Id | Guid | Identificador único |
-| IdeaId | Guid | FK para a ideia original (1:1) |
-| Name | string | Nome do projeto |
-| Description | string | Descrição do projeto |
-| StartDate | DateTime | Data de início |
-| EndDate | DateTime? | Data de término |
-| Status | ProjectStatus | Planning, InProgress, Paused, Completed, Cancelled |
-| ProgressPercentage | int | Progresso (0-100%) |
 ```
+| Campo               | Tipo          | Descrição                                      |
+|--------------------|---------------|-----------------------------------------------|
+| Id                 | Guid          | Identificador único                           |
+| IdeaId             | Guid          | FK para a ideia original (1:1)               |
+| Name               | string        | Nome do projeto                              |
+| Description        | string        | Descrição do projeto                         |
+| StartDate          | DateTime      | Data de início                               |
+| EndDate            | DateTime?     | Data de término                              |
+| Status             | ProjectStatus | Planning, InProgress, Paused, Completed, Cancelled |
+| ProgressPercentage | int           | Progresso (0-100%)                           |
+```
+
 ### 🔗 Relacionamento
 
 ```text
@@ -140,18 +148,17 @@ Idea (1) ────────── (1) Project
 
 ## 🛠️ Tecnologias
 
-```text
-| Categoria | Tecnologia | Versão |
-|-----------|------------|--------|
-| Framework | .NET (ASP.NET Core) | 10.0 |
-| Arquitetura | Razor Pages | - |
-| ORM | Entity Framework Core | 9.0 |
-| Banco de Dados | PostgreSQL | 16+ |
-| Frontend | Bootstrap 5 | Nativo .NET |
-| Ícones | Bootstrap Icons | 1.11.0 |
-| Testes | xUnit | - |
 ```
-
+| Categoria        | Tecnologia             | Versão |
+|------------------|------------------------|--------|
+| Framework        | .NET (ASP.NET Core)    | 10.0   |
+| Arquitetura      | Razor Pages            | -      |
+| ORM              | Entity Framework Core  | 9.0    |
+| Banco de Dados   | PostgreSQL             | 16+    |
+| Frontend         | Bootstrap 5            | Nativo |
+| Ícones           | Bootstrap Icons        | 1.11.0 |
+| Testes           | xUnit                  | -      |
+```
 ---
 
 ## ▶️ Como Executar
@@ -199,32 +206,32 @@ dotnet run --project IdeaManager.Web
 http://localhost:5114
 ```
 
-# 🧪 Testes
-```bash
-dotnet test
-```
+## 📄 Roadmap (Próximos Passos)
 
-#  📄 Roadmap (próximos passos)
+O projeto continuará evoluindo com as seguintes funcionalidades:
 
-- Autenticação com ASP.NET Identity
+- 🔐 Autenticação e autorização com ASP.NET Identity  
+- 📊 Dashboard com métricas e visualização de dados  
+- 🏷️ Sistema de tags e filtros avançados  
+- 📄 Exportação de dados (PDF e Excel)  
+- 🌐 API REST para integração externa  
+- 🧾 Auditoria de logs (monitoramento de erros)  
+- 🔔 Sistema de notificações  
+- 🔊 Notificações sonoras  
 
-- Dashboard com métricas e gráficos
+### 🎯 Bônus
 
-- Tags e filtros avançados
-
-- Exportação de dados (PDF/Excel)
-
-- API REST para integração externa
-
-** Bônus: Notificações por email
+- 📧 Notificações por e-mail
 
 
-# 👨‍💻 Autor
-@Devmoises79
+## 👨‍💻 Autor
 
+**Moisés Aniceto**  
 
-# 📄 Licença
-- MIT
+---
 
+## 📄 Licença
+
+Este projeto está sob a licença **MIT**.
 
 
