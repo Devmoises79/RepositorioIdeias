@@ -9,11 +9,11 @@ Aplicação web fullstack para captura, organização e evolução de ideias at�
 
 ---
 
-💡 **Problema:** ideias surgem constantemente, mas sem organização acabam sendo esquecidas ou nunca executadas.
+- 💡 **Problema:** ideias surgem constantemente, mas sem organização acabam sendo esquecidas ou nunca executadas.
 
-🚀 **Solução:** o Idea Manager centraliza, organiza e acompanha ideias desde a criação até sua execução como projetos.
+- 🚀 **Solução:** o Idea Manager centraliza, organiza e acompanha ideias desde a criação até sua execução como projetos.
 
-🎯 **Objetivo:** transformar ideias em ações de forma estruturada e rastreável.
+- 🎯 **Objetivo:** transformar ideias em ações de forma estruturada e rastreável.
 ---
 
 ## 🚀 Visão Geral
